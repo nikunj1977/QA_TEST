@@ -26,7 +26,7 @@ Scenario: Create a new trade for selected pair currencies
   When  used entered 1000 GBP into Sell Amount text box
   Then  Buy Amount should automatically be calculated by multiplying the Sell amount 1000 GBP by the rate 1.37
 
-Scenario: Successful New Trade transaction created and store in Database and displat on Trade View page
+Scenario: New Trade transaction created Successfully and stored in database and display on Trade View page
   Given user select Sell Currency EUR
   And   select Buy Currency USD
   And   enter Sell Amount into Sell Amount textbox
@@ -46,3 +46,4 @@ Scenario: Successful New Trade transaction created and store in Database and dis
 
 
   #| USD          | 1.37            | 500         |
+  #

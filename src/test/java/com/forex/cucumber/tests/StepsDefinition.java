@@ -30,15 +30,18 @@ NewTradeTransaction newTradeTransaction = new NewTradeTransaction(Currency.EUR,C
     @Given("valid user is on Book trades")
     public void valid_user_is_on_book_trades() {
         System.out.println("Valid user is on Book Trade page");
+        //Assert URL
     }
     @When("New trade button is clicked")
     public void new_trade_button_is_clicked() {
         System.out.println("User Click on New Trade button");
+        //Assert button is visible/enabled/clickable
     }
 
     @Then("New trade layout is displayed")
     public void new_trade_layout_is_displayed(){
         System.out.println("New Trade layout is displayed");
+        //Assert New Trade layout is visible
     }
 
     @Then("Sell Currency dropdown is empty")
@@ -70,6 +73,7 @@ NewTradeTransaction newTradeTransaction = new NewTradeTransaction(Currency.EUR,C
         selectSellCurency.stream()
                 .filter(s->s.equalsIgnoreCase("GBP"))
                 .forEach(s-> System.out.println("User selected "+ s + " as Sell Currency"));
+
     }
     @When("select Buy Currency as USD from Buy Currency dropdown")
     public void select_buy_currency_as_usd_from_buy_currency_dropdown(DataTable buyCurrencies) {
@@ -115,6 +119,7 @@ NewTradeTransaction newTradeTransaction = new NewTradeTransaction(Currency.EUR,C
         final double buyAmount  = sellAmount * conversionRate; // Buy Amount is not editable so it must be final
 
         System.out.println(buyAmount);
+        Assertions.assertEquals(buyAmount,1370.0);
     }
     // Scenario: 4
 
@@ -132,7 +137,7 @@ NewTradeTransaction newTradeTransaction = new NewTradeTransaction(Currency.EUR,C
     @Given("enter Sell Amount into Sell Amount textbox")
     public void enter_sell_amount_into_sell_amount_textbox() {
 
-        System.out.println("User entered Buy Amount :: " + newTradeTransaction.getSellAmount());
+        System.out.println("User entered Sell Amount :: " + newTradeTransaction.getSellAmount());
     }
     @Given("Buy Amount automatically calculated by multiplying the Sell amount by the rate")
     public void buy_amount_automatically_calculated_by_multiplying_the_sell_amount_by_the_rate() {
@@ -149,5 +154,6 @@ NewTradeTransaction newTradeTransaction = new NewTradeTransaction(Currency.EUR,C
     @Then("displayed on View Trade screen")
     public void displayed_on_view_trade_screen() {
         System.out.println("New trade displayed on Trade View screen ::" + newTradeTransaction.toString());
+        //Assert new trade transaction on trade view page
     }
 }
